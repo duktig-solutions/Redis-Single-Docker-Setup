@@ -1,0 +1,18 @@
+version: "3"
+services:
+  redis_single:
+    build: .
+    # image: redis
+    container_name: intermediate_data_center_redis_single
+    volumes:
+      - redis_exchange_vol:/data
+    ports:
+      - '6380:6379'
+    networks:
+      - redis_exchange_net
+
+networks:
+  redis_exchange_net:
+
+volumes: 
+  redis_exchange_vol:
